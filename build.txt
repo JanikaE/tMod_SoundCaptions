@@ -1,4 +1,4 @@
-displayName = ��Ч��Ļ
+displayName = 音效字幕
 author = Janika
 version = 1.0.0
 side = Client
