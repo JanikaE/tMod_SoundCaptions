@@ -1,0 +1,579 @@
+Configs: {
+	CaptionLayoutConfig: {
+		DisplayName: Caption Layout
+
+		HorizontalPosition: {
+			Label: Horizontal Position
+			Tooltip: 0 is the left edge and 1 is the right edge of the available area.
+		}
+
+		VerticalPosition: {
+			Label: Vertical Position
+			Tooltip: 0 is the top edge and 1 is the bottom edge of the available area.
+		}
+
+		WindowWidth: {
+			Label: Window Width (UI Units)
+			Tooltip: ""
+		}
+
+		WindowHeight: {
+			Label: Window Height (UI Units)
+			Tooltip: ""
+		}
+	}
+
+	ClientConfig: {
+		MusicVolumes: {
+			Label: Adjusted Volumes
+			Tooltip: ""
+		}
+
+		DisplayName: Caption Settings
+
+		Headers: {
+			Volume: Adjusted Volumes
+			Sound: Sound Effects
+			Music: Music
+			Development: Development
+		}
+
+		ShowSoundCaptions: {
+			Label: Show Sound Effect Captions
+			Tooltip: ""
+		}
+
+		SoundDurationSeconds: {
+			Label: Sound Caption Duration (Seconds)
+			Tooltip: ""
+		}
+
+		SoundTextColor: {
+			Label: Sound Caption Text Color
+			Tooltip: ""
+		}
+
+		SoundBackgroundColor: {
+			Label: Sound Caption Background Color
+			Tooltip: ""
+		}
+
+		SoundBackgroundOpacity: {
+			Label: Sound Caption Background Opacity (%)
+			Tooltip: ""
+		}
+
+		SoundTextScale: {
+			Label: Sound Caption Text Scale (%)
+			Tooltip: ""
+		}
+
+		DirectionThreshold: {
+			Label: Direction Threshold (World Pixels)
+			Tooltip: Hide the arrow when the horizontal distance is at or below this value.
+		}
+
+		ShowMusicCaptions: {
+			Label: Show Music Captions
+			Tooltip: ""
+		}
+
+		MusicMode: {
+			Label: Music Caption Mode
+			Tooltip: ""
+		}
+
+		MusicDurationSeconds: {
+			Label: Track Change Caption Duration (Seconds)
+			Tooltip: ""
+		}
+
+		MusicTextColor: {
+			Label: Music Caption Text Color
+			Tooltip: ""
+		}
+
+		MusicBackgroundColor: {
+			Label: Music Caption Background Color
+			Tooltip: ""
+		}
+
+		MusicBackgroundOpacity: {
+			Label: Music Caption Background Opacity (%)
+			Tooltip: ""
+		}
+
+		MusicTextScale: {
+			Label: Music Caption Text Scale (%)
+			Tooltip: ""
+		}
+
+		EnableDiagnostics: {
+			Label: Enable Diagnostics
+			Tooltip: Show sound playback diagnostics and enable /soundcaptionsdiag probes in chat.
+		}
+	}
+
+	MusicDisplayMode: {
+		OnTrackChange: {
+			Label: Only When the Track Changes
+			Tooltip: ""
+		}
+
+		Always: {
+			Label: Always Show the Current Track
+			Tooltip: ""
+		}
+
+		Tooltip: ""
+	}
+}
+
+Keybinds.ToggleEditMode.DisplayName: Toggle Caption Edit Mode
+
+Diagnostics: {
+	StressAlreadyRunning: A caption measurement is already running.
+	StressNeedsWorld: Enter a world before starting a caption measurement.
+	StressBaselineStarted: "Caption baseline started ({0} seconds)."
+	StressLoadStarted: "Caption stress test started ({0} seconds)."
+	StressIdle: No caption measurement is running.
+	StressBaseline: Baseline
+	StressLoad: Stress
+	StressReport: "{0} · {1:F1} s · {2} updates · interval avg {3:F2} ms, max {4:F2} ms · managed heap {5:F1} → {6:F1} MiB · peak captions {7}"
+	Description: Check Sound Captions client status.
+	Disabled: Sound Captions diagnostics are off. Enable them in Caption Settings.
+	KeybindReady: Sound Captions client loaded. The edit mode keybind is registered.
+	KeybindUnavailable: Sound Captions client loaded. The edit mode keybind is unavailable.
+	AudioAvailable: Audio available. Game sound volume: {0:P0}
+	AudioUnavailable: The game audio engine is unavailable.
+	Cleared: Sound Captions diagnostic counters cleared.
+	Counts: Sound Captions | Accepted: {0} | Rejected at playback: {1}
+	NameCounts: Named {0} · fallback {1}
+	LastAccepted: Last accepted: {0} | Position: {1}
+	LastRejected: Last rejected at playback: {0}
+	Identity: Caption: {0} | Volume target: {1}
+	Output: Initial output: {0:P0} | Pan: {1:0.00} | Pitch: {2:0.00}
+	NoPosition: Global (no position)
+	ProbeResult: Probe: {0} | Accepted +{1} | Rejected at playback +{2} | Requested position: {3}
+	ValidSlot: Valid slot
+	InvalidSlot: Invalid slot
+	NoAudio: Audio unavailable
+	MusicStatus: Music: {0} | Selection changes: {1} | Cue fade: {2:P0} | Stream fade: {3:P0}
+	NoTrack: No track
+	SelectedProbe: Music selection probe: {0}
+	GainSet: Diagnostic gain for {0}: {1:P0}
+	ProbeUnavailable: The sample or its output hook is unavailable.
+	LoopStarted: Diagnostic sound loop started.
+	LoopStopped: Diagnostic sound loop is stopped.
+	LoopOutput: Loop gain: {0:P0} | Current output: {1:P0}
+	LoopPairOutput: Left pan: {0:0.00} | Right output: {1:P0} | Right pan: {2:0.00}
+	CaptionCount: Active sound captions: {0}
+	CaptionBatch: Generated {0} distinct test captions. Active sound captions: {1}
+	CaptionsDisabled: Enable sound effect captions in Caption Settings to run this probe.
+}
+
+Captions: {
+	DiagnosticStress: Repeated stress caption
+	DiagnosticLong: Long test caption with several words and an UninterruptedResourceNameThatAlsoNeedsWrapping. This entire caption belongs to one event.
+	DoorOpen: Door opening sound
+	DoorClosed: Door closes
+	Explosion: Explosion
+	Pickup: Item pickup
+	Swing: Swing
+	ZombieMoan: Low groan
+	DiagnosticLoop: Test loop
+	DiagnosticEntry: Test caption {0}
+	Unknown: Unknown sound
+	Unlock: Unlocking
+	CoinPickup: Coins jingle
+	Coins: Coins clink
+	Dig: Block impact
+	Tink: Hard surface struck
+	Grass: Grass rustles
+	UseItem: Item use
+	Drink: Drinking or eating
+	Chime: Chime
+	Bow: Bowstring twang
+	Gunshot: Gunshot
+	Shatter: Shattering
+	PlayerHurt: Player hurt
+	PlayerKilled: Player dies
+	Drown: Drowning
+	DoubleJump: Double jump
+	Run: Footsteps
+	MaxMana: Ready chime
+	Mech: Click
+	MenuOpen: Menu opens
+	MenuClose: Menu closes
+	MenuTick: Menu tick
+	Chat: Chat notification
+	Camera: Camera shutter
+	Achievement: Achievement unlocked
+	Research: Researching an item
+	ResearchComplete: Research complete
+	Splash: Splash
+	ShimmerSplash: Shimmer splashes
+	Drip: Water dripping
+	Waterfall: Waterfall
+	Lavafall: Lava flowing
+	LiquidMix: Liquids mix
+	Thunder: Thunder
+	Blizzard: Blizzard howls
+	Roar: Roar
+	WormDig: Burrowing
+	Scream: Scream
+	Bird: Bird chirps
+	Duck: Duck quacks
+	Frog: Frog croaks
+	Critter: Critter calls
+	Dolphin: Dolphin calls
+	Seagull: Seagull calls
+	Owl: Owl hoots
+	Cockatiel: Cockatiel calls
+	Macaw: Macaw calls
+	Toucan: Toucan calls
+	Pixie: Pixie buzzes
+	Mummy: Mummy groans
+	BloodZombie: Blood Moon creature groans
+	SandShark: Creature call
+	Clown: Clown calls
+	QueenSlime: Queen Slime calls
+	Meowmere: Meow
+	AbigailAttack: Abigail attacks
+	AbigailCry: Abigail cries
+	AbigailSummon: Abigail summoned
+	AbigailUpgrade: Abigail grows stronger
+	ChesterOpen: Chester opens
+	ChesterClose: Chester closes
+	LucyTalk: Lucy the Axe speaks
+	DeerclopsDeath: Deerclops dies
+	DeerclopsHit: Deerclops hurt
+	DeerclopsIce: Deerclops casts ice spikes
+	DeerclopsRubble: Deerclops throws rubble
+	DeerclopsRoar: Deerclops roars
+	DeerclopsStep: Deerclops footsteps
+	Guitar: Guitar chord
+	Drum: Drum beat
+	FireballShot: Fireball launches
+	FireballImpact: Fireball impact
+	SharedImpact: Impact
+	NpcHurt: Creature hurt
+	NpcDeath: Creature dies
+	UnmappedVanilla: Terraria sound
+	Aetherium: Aetherium block forms
+	AmmoBox: Ammo Box used
+	AntlionSound: Antlion sound
+	BeeBuzz: Bee buzzing
+	Bell: Bell rings
+	BladeSwing: Blade swings
+	BloodCrawler: Blood Crawler sound
+	Boost: Propulsion sound
+	BoulderImpact: Boulder impact
+	BubblePop: Bubble pops
+	ChatteringTeeth: Teeth chatter
+	CultistArrival: Lunatic Cultist appears
+	CultistSound: Lunatic Cultist sound
+	DartLaunch: Blow dart launches
+	Deflect: Projectile deflected
+	DemonSound: Demon sound
+	DungeonBrick: Dungeon brick crumbles
+	EmpressSound: Empress of Light sound
+	FaceMonster: Face Monster sound
+	Fart: Flatulence
+	FireworksLaunch: Fireworks launch
+	FishronSound: Duke Fishron sound
+	Flute: Flute plays
+	Frankenstein: Frankenstein groans
+	GolfHole: Golf ball drops in
+	GolfSwing: Golf club swings
+	GolfWhistle: Golf whistle
+	Harp: Harp notes
+	HitSound: Hit sound
+	IceChink: Icy crackle
+	IceImpact: Ice struck
+	IceMist: Ice mist appears
+	IcePlaced: Magic ice placed
+	JellyfishSound: Jellyfish sound
+	LaserFire: Laser fires
+	LightningCast: Lightning spell cast
+	LiquidSplash: Liquid splashes
+	MagicImpact: Magic projectile impact
+	MagicPulse: Magic pulse
+	MagicWeapon: Magic weapon sound
+	ManaCrystal: Mana Crystal used
+	MartianMachine: Martian machinery sound
+	MetalRing: Metal rings
+	MeteorImpact: Meteor impact
+	MinecartBounce: Minecart bounces
+	MinecartBrake: Minecart slows
+	MinecartContact: Minecart hits track
+	MoonLordArrival: Moon Lord arrives
+	MoonLordSound: Moon Lord sound
+	MusicRecorded: Music Box records
+	NailGun: Nail gun fires
+	NautilusSound: Dreadnautilus sound
+	OddSound: Strange sound
+	PanImpact: Pan clang
+	Parrot: Parrot calls
+	PhantasmalImpact: Phantasmal eye impact
+	PhantasmalRay: Phantasmal deathray
+	PhantasmalSphere: Phantasmal sphere sound
+	PhantasmSummon: Phantasm Dragon appears
+	Pigron: Pigron sound
+	Pogo: Pogo stick bounces
+	PortalGun: Portal Gun sound
+	ProjectileLaunch: Projectile launches
+	QueenBeeSound: Queen Bee sound
+	ShieldBreak: Celestial Pillar shield breaks
+	ShimmerEnds: Shimmering ends
+	ShimmerSound: Shimmer sound
+	Slap: Slap
+	SnowballImpact: Snowball impact
+	SnowImpact: Snow struck
+	SpiritSound: Spectral creature sound
+	Spray: Spraying sound
+	Squish: Squish
+	Summon: Summoning sound
+	TargetHit: Target dummy hit
+	Teleport: Teleport sound
+	ToolMotor: Power tool running
+	TrackImpact: Minecart track struck
+	TrueEyeSound: True Eye of Cthulhu sound
+	VoidBag: Void Bag sound
+	WeaponDischarge: Weapon discharge
+	Whip: Whip cracks
+	BallistaShot: Ballista fires
+	BetsyBreath: Betsy breathes fire
+	BetsyCircle: Betsy circles to attack
+	BetsyArrival: Betsy arrives
+	BetsyWind: Betsy unleashes a gust
+	BookCast: Tome of Infinite Wisdom casts
+	BookTwister: Magical tornado whirls
+	EterniaCrystalHit: Eternia Crystal hit
+	DarkMageAttack: Dark Mage conjures dark energy
+	DarkMageHeal: Dark Mage casts a heal
+	DarkSigilImpact: Dark sigil lands
+	OldOnesSkeleton: Old One's Skeleton appears
+	OldOnesDefeat: Old One's Army defense fails
+	DefenseSummon: Defense summoned
+	DrakinInhale: Drakin inhales
+	DrakinShot: Drakin fires a projectile
+	EterniaPortalHum: Mysterious Portal hums
+	EterniaPortalOpen: Mysterious Portal opens
+	EterniaPortalSpawn: Enemy emerges from the portal
+	Flameburst: Flameburst Tower fires
+	GlaiveGhost: Glaive summons a ghost
+	GlaivePierce: Glaive thrust
+	GoblinBombThrow: Goblin throws a bomb
+	JavelinThrow: Javelin thrown
+	JavelinTaunt: Javelin Thrower taunts
+	KoboldIgnite: Kobold lights its explosive
+	KoboldFuse: Kobold's fuse burns
+	LightningZap: Electric zap
+	MonkStaffImpact: Weapon strikes the ground
+	MonkStaffMiss: Weapon misses
+	OgreAttack: Ogre attacks
+	OgrePound: Ogre pounds the ground
+	OgreSpit: Ogre spits
+	PhantomPhoenixShot: Phantom Phoenix fires
+	DragonFurySpin: Sky Dragon's Fury spins
+	DragonFuryShot: Sky Dragon's Fury fires
+	SonicSlash: Flying Dragon unleashes a sonic slash
+	OldOnesVictory: Old One's Army defense succeeds
+	WitherPulse: Wither Beast aura pulses
+	WitherCrystalHit: Wither Beast crystal impact
+	WyvernDive: Etherian Wyvern dives
+	GlommerBounce: Glommer bounces
+	DroneFlight: Kwad Racer Drone flies
+	Wingbeat: Wingbeats
+	ScramblerSummon: Scutlix mount summoned
+	XenopopperFire: Xenopopper fires
+	DerplingSound: Derpling sound
+	FlyingSnakeSound: Flying Snake sound
+	TortoiseSound: Giant Tortoise sound
+	LihzahrdSound: Lihzahrd sound
+	NimbusSound: Angry Nimbus sound
+	CrawdadSound: Crawdad sound
+	DeadlySphereSound: Deadly Sphere sound
+	ManFlySound: Dr. Man Fly sound
+	GhoulSound: Ghoul sound
+	ShellySound: Giant Shelly sound
+	GigazapperSound: Gigazapper sound
+	GoblinWarlockSound: Goblin Warlock sound
+	GraniteGolemSound: Granite Golem sound
+	MothronSound: Mothron sound
+	MushiSound: Mushi Ladybug sound
+	PossessedSound: The Possessed sound
+	SalamanderSound: Salamander sound
+	ScutlixSound: Scutlix sound
+	BestReforge: Best reforge chime
+	BarrelFire: Barrel launcher fires
+	FlintCharge: Flint charges
+	FlintRelease: Flint releases its attack
+	FlintWave: Flint shockwave
+	MushroomSummon: Mushroom companion summoned
+	EaterDig: Eater of Worlds burrows
+	FishingSplash: Fishing splash
+	FuseBurn: Fuse burns
+	Hunger: Hunger sound
+	MenuAccept: Menu confirmation
+	MeteorShower: Meteor shower sound
+	CattivaSound: Cattiva sound
+	CattivaDistress: Cattiva distress call
+	ChilletSound: Chillet sound
+	ChilletAttack: Chillet attacks
+	DigtoiseSound: Digtoise sound
+	FoxparksSound: Foxparks sound
+	FoxparksAttack: Foxparks attacks
+	FoxparksDistress: Foxparks distress call
+	PalSummon: Pal summoned
+	RainbowChime: Rainbow sound
+	RemoteCar: Remote-control car drives
+	SunlightBurn: Sunlight sizzles
+	Sonar: Sonar ping
+	StatueJump: Statue mimic jumps
+	StatueLaugh: Statue mimic laughs
+	StatueScare: Statue mimic scare
+	TrashItem: Item trashed
+	AlchemyFlask: Alchemy Flask used
+	NightAmulet: Amulet of the Night sound
+	SlasherSkull: Mysterious Skull sound
+	WolfNecklace: Wolf transformation sound
+	KiteReel: Kite reel spins
+	EelSound: Electric Eel sound
+	StickUnicorn: Unicorn on a Stick sound
+	SpectateOrb: Scrying Orb sound
+	IceGunshot: Glacier Fang fires
+	ElectricArc: Electrical arc surges
+	LightningHit: Lightning strikes
+	VolcanicStone: Pyroclastic Stone sound
+	ArmletSound: Armlet of Ruin sound
+	IceCharge: Glacier Fang charges
+	StatueHit: Statue mimic hit
+	StatueDeath: Statue mimic defeated
+	DigtoiseDrill: Digtoise drills
+}
+
+MusicTitles: {
+	Unknown: Unknown track
+	UnknownVanilla: Terraria track
+	OverworldDay: Overworld Day
+	Eerie: Eerie
+	Night: Night
+	Underground: Underground
+	Boss1: Boss 1
+	Title: Title Screen
+	Jungle: Jungle
+	Corruption: Corruption
+	TheHallow: The Hallow
+	UndergroundCorruption: Underground Corruption
+	UndergroundHallow: Underground Hallow
+	Boss2: Boss 2
+	Boss3: Boss 3
+	Snow: Snow
+	Space: Space Night
+	Crimson: Crimson
+	Boss4: Boss 4
+	AltOverworldDay: Alternate Overworld Day
+	Rain: Rain
+	Ice: Ice
+	Desert: Desert
+	Ocean: Ocean Day
+	Dungeon: Dungeon
+	Plantera: Plantera
+	Boss5: Boss 5
+	Temple: Jungle Temple
+	Eclipse: Solar Eclipse
+	Mushrooms: Mushroom Biome
+	PumpkinMoon: Pumpkin Moon
+	AltUnderground: Alternate Underground
+	FrostMoon: Frost Moon
+	UndergroundCrimson: Underground Crimson
+	TheTowers: Lunar Pillars
+	PirateInvasion: Pirate Invasion
+	Hell: Underworld
+	MartianMadness: Martian Madness
+	LunarBoss: Moon Lord
+	GoblinInvasion: Goblin Invasion
+	Sandstorm: Sandstorm
+	OldOnesArmy: Old One's Army
+	SpaceDay: Space Day
+	OceanNight: Ocean Night
+	WindyDay: Windy Day
+	TownDay: Town Day
+	TownNight: Town Night
+	SlimeRain: Slime Rain
+	DayRemix: Overworld Day Remix
+	MenuMusic: Journey's Beginning (with intro)
+	Monsoon: Storm
+	Graveyard: Graveyard
+	JungleUnderground: Underground Jungle
+	JungleNight: Jungle Night
+	QueenSlime: Queen Slime
+	EmpressOfLight: Empress of Light
+	DukeFishron: Duke Fishron
+	MorningRain: Morning Rain
+	ConsoleMenu: Console Menu
+	UndergroundDesert: Underground Desert
+	OtherworldlyRain: Otherworldly Rain
+	OtherworldlyDay: Otherworldly Day
+	OtherworldlyNight: Otherworldly Night
+	OtherworldlyUnderground: Otherworldly Underground
+	OtherworldlyDesert: Otherworldly Desert
+	OtherworldlyOcean: Otherworldly Ocean
+	OtherworldlyMushrooms: Otherworldly Mushrooms
+	OtherworldlyDungeon: Otherworldly Dungeon
+	OtherworldlySpace: Otherworldly Space
+	OtherworldlyUnderworld: Otherworldly Underworld
+	OtherworldlySnow: Otherworldly Snow
+	OtherworldlyCorruption: Otherworldly Corruption
+	OtherworldlyUGCorrption: Otherworldly Underground Corruption
+	OtherworldlyCrimson: Otherworldly Crimson
+	OtherworldlyUGCrimson: Otherworldly Underground Crimson
+	OtherworldlyIce: Otherworldly Ice
+	OtherworldlyUGHallow: Otherworldly Underground Hallow
+	OtherworldlyEerie: Otherworldly Eerie
+	OtherworldlyBoss2: Otherworldly Boss 2
+	OtherworldlyBoss1: Otherworldly Boss 1
+	OtherworldlyInvasion: Otherworldly Invasion
+	OtherworldlyTowers: Otherworldly Towers
+	OtherworldlyLunarBoss: Otherworldly Moon Lord
+	OtherworldlyPlantera: Otherworldly Plantera
+	OtherworldlyJungle: Otherworldly Jungle
+	OtherworldlyWoF: Otherworldly Wall of Flesh
+	OtherworldlyHallow: Otherworldly Hallow
+	Credits: Credits
+	Deerclops: Deerclops
+	Shimmer: Shimmer
+	DiagnosticLoop: Diagnostic Loop
+}
+
+Editor: {
+	Header: Caption Edit Mode · Drag to move
+	Preview: Layout preview
+	CurrentTrack: Current track
+	Details: Caption details
+	MusicScope: Applies to this track.
+	SoundScope: Applies to this sound family and its variants.
+	SaveFailed: Could not save the caption layout.
+	VolumeUnavailable: Volume control is unavailable for this audio backend.
+	VolumeSaveFailed: Could not save the volume setting.
+	Mute: Mute
+	ResetVolume: Restore default
+}
+
+VolumeManager: {
+	Sound: Sound Effects
+	Music: Music
+	Search: Search name, source, or key
+	Help: Changes are applied when you save this config. Hover over a row to see its full key.
+	Empty: No adjusted volumes match.
+	Page: Page {0}/{1} · {2} entries
+	Reset: Restore
+	ResetAll: Restore all volumes
+	ConfirmReset: Confirm restore all
+	CancelReset: Cancel
+	Unavailable: Unavailable
+	UnknownSource: Unknown source
+	ConfigSaveFailed: Could not save the config. Your edits are still pending. You can try saving again.
+}

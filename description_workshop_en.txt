@@ -1,0 +1,9 @@
+[h1]Sound Captions[/h1]
+Adds captions for Terraria sound effects and the current background music.
+
+[list]
+[*]Toggle sound and music captions independently and customize their font size, colors, opacity, and duration.
+[*]Sound captions show left or right cues. Music captions can appear briefly when a track changes or stay visible.
+[*]Press F9 by default to edit the layout, select captions, and adjust individual volumes (0%–200%). Manage saved adjustments in Mod Config.
+[*]Client-side mod with local settings. Supports sounds and music played through the standard tModLoader audio paths.
+[/list]

@@ -1,0 +1,579 @@
+Configs: {
+	CaptionLayoutConfig: {
+		DisplayName: 字幕布局
+
+		HorizontalPosition: {
+			Label: 水平位置
+			Tooltip: 0 靠左，1 靠右。位置随可用区域变化。
+		}
+
+		VerticalPosition: {
+			Label: 垂直位置
+			Tooltip: 0 靠上，1 靠下。位置随可用区域变化。
+		}
+
+		WindowWidth: {
+			Label: 窗口宽度（UI 单位）
+			// Tooltip: ""
+		}
+
+		WindowHeight: {
+			Label: 窗口高度（UI 单位）
+			// Tooltip: ""
+		}
+	}
+
+	ClientConfig: {
+		MusicVolumes: {
+			Label: 已调整音量
+			// Tooltip: ""
+		}
+
+		DisplayName: 字幕设置
+
+		Headers: {
+			Volume: 已调整音量
+			Sound: 音效
+			Music: 音乐
+			Development: 开发
+		}
+
+		ShowSoundCaptions: {
+			Label: 显示音效字幕
+			// Tooltip: ""
+		}
+
+		SoundDurationSeconds: {
+			Label: 音效字幕停留时间（秒）
+			// Tooltip: ""
+		}
+
+		SoundTextColor: {
+			Label: 音效字幕字色
+			// Tooltip: ""
+		}
+
+		SoundBackgroundColor: {
+			Label: 音效字幕背景色
+			// Tooltip: ""
+		}
+
+		SoundBackgroundOpacity: {
+			Label: 音效字幕背景不透明度（%）
+			// Tooltip: ""
+		}
+
+		SoundTextScale: {
+			Label: 音效字幕字号（%）
+			// Tooltip: ""
+		}
+
+		DirectionThreshold: {
+			Label: 无方向阈值（世界像素）
+			Tooltip: 声源与玩家的横向距离不超过此值时，隐藏方向箭头。
+		}
+
+		ShowMusicCaptions: {
+			Label: 显示音乐字幕
+			// Tooltip: ""
+		}
+
+		MusicMode: {
+			Label: 音乐字幕模式
+			// Tooltip: ""
+		}
+
+		MusicDurationSeconds: {
+			Label: 切曲字幕停留时间（秒）
+			// Tooltip: ""
+		}
+
+		MusicTextColor: {
+			Label: 音乐字幕字色
+			// Tooltip: ""
+		}
+
+		MusicBackgroundColor: {
+			Label: 音乐字幕背景色
+			// Tooltip: ""
+		}
+
+		MusicBackgroundOpacity: {
+			Label: 音乐字幕背景不透明度（%）
+			// Tooltip: ""
+		}
+
+		MusicTextScale: {
+			Label: 音乐字幕字号（%）
+			// Tooltip: ""
+		}
+
+		EnableDiagnostics: {
+			Label: 启用诊断
+			Tooltip: 显示音效播放诊断，并启用聊天命令 /soundcaptionsdiag 的探针。
+		}
+	}
+
+	MusicDisplayMode: {
+		OnTrackChange: {
+			Label: 仅切曲时显示
+			// Tooltip: ""
+		}
+
+		Always: {
+			Label: 持续显示当前曲目
+			// Tooltip: ""
+		}
+
+		// Tooltip: ""
+	}
+}
+
+Keybinds.ToggleEditMode.DisplayName: 切换字幕编辑模式
+
+Diagnostics: {
+	StressAlreadyRunning: 已有一轮字幕测量正在运行。
+	StressNeedsWorld: 请先进入世界再开始测量。
+	StressBaselineStarted: "已开始字幕基线测量（{0} 秒）。"
+	StressLoadStarted: "已开始字幕压力测量（{0} 秒）。"
+	StressIdle: 当前没有字幕测量。
+	StressBaseline: 基线
+	StressLoad: 压力
+	StressReport: "{0} · {1:F1} 秒 · {2} 次更新 · 平均间隔 {3:F2} ms，最大 {4:F2} ms · 托管堆 {5:F1} → {6:F1} MiB · 活动字幕峰值 {7}"
+	Description: 检查 Sound Captions 的客户端状态。
+	Disabled: Sound Captions 诊断已关闭，可在字幕设置中启用。
+	KeybindReady: Sound Captions 客户端已加载，编辑模式快捷键已注册。
+	KeybindUnavailable: Sound Captions 客户端已加载，编辑模式快捷键不可用。
+	AudioAvailable: 游戏音频可用，音效总音量为 {0:P0}。
+	AudioUnavailable: 游戏音频引擎不可用。
+	Cleared: 已清空 Sound Captions 诊断计数。
+	Counts: Sound Captions | 已接受 {0} | 播放阶段拒绝 {1}
+	NameCounts: 命名 {0} · 回退 {1}
+	LastAccepted: 最近接受：{0} | 坐标：{1}
+	LastRejected: 最近在播放阶段被拒绝：{0}
+	Identity: 字幕键：{0} | 音量目标：{1}
+	Output: 初始输出：{0:P0} | 声像：{1:0.00} | 音高：{2:0.00}
+	NoPosition: 全局（无坐标）
+	ProbeResult: 探针：{0} | 接受 +{1} | 播放阶段拒绝 +{2} | 请求坐标：{3}
+	ValidSlot: 有效句柄
+	InvalidSlot: 无效句柄
+	NoAudio: 音频不可用
+	MusicStatus: 音乐：{0} | 选曲变化：{1} | Cue 淡化：{2:P0} | 流式淡化：{3:P0}
+	NoTrack: 无曲目
+	SelectedProbe: 音乐选择探针：{0}
+	GainSet: 已将 {0} 的测试音量设为 {1:P0}。
+	ProbeUnavailable: 测试样例或其音量输出挂钩不可用。
+	LoopStarted: 已启动测试循环音效。
+	LoopStopped: 测试循环音效已停止。
+	LoopOutput: 循环音效设置：{0:P0} | 当前输出：{1:P0}
+	LoopPairOutput: 左侧声像：{0:0.00} | 右侧输出：{1:P0} | 右侧声像：{2:0.00}
+	CaptionCount: 有效音效字幕：{0}
+	CaptionBatch: 已生成 {0} 类测试字幕。有效音效字幕：{1}
+	CaptionsDisabled: 请先在字幕设置中开启音效字幕。
+}
+
+Captions: {
+	DiagnosticStress: 高频压力字幕
+	DiagnosticLong: 这是一条用于检查自动换行的长音效字幕。缩窄窗口或增大字号后，所有可见文字都应留在背景范围内，同一个事件仍然只占一条字幕。
+	DoorOpen: 开门声
+	DoorClosed: 门关闭
+	Explosion: 爆炸
+	Pickup: 物品拾取
+	Swing: 挥动
+	ZombieMoan: 低吼声
+	DiagnosticLoop: 循环测试音效
+	DiagnosticEntry: 测试字幕 {0}
+	Unknown: 未知音效
+	Unlock: 开锁
+	CoinPickup: 钱币叮当
+	Coins: 钱币叮当
+	Dig: 方块敲击
+	Tink: 硬物敲击
+	Grass: 草叶沙沙
+	UseItem: 使用物品
+	Drink: 饮用或进食
+	Chime: 清脆铃音
+	Bow: 弓弦弹响
+	Gunshot: 枪声
+	Shatter: 碎裂
+	PlayerHurt: 玩家受伤
+	PlayerKilled: 玩家死亡
+	Drown: 溺水
+	DoubleJump: 二段跳
+	Run: 脚步声
+	MaxMana: 就绪提示音
+	Mech: 咔哒声
+	MenuOpen: 菜单打开
+	MenuClose: 菜单关闭
+	MenuTick: 菜单选项提示
+	Chat: 聊天提示
+	Camera: 快门声
+	Achievement: 达成成就
+	Research: 研究物品
+	ResearchComplete: 研究完成
+	Splash: 溅水声
+	ShimmerSplash: 微光溅起
+	Drip: 滴水声
+	Waterfall: 瀑布声
+	Lavafall: 熔岩流动
+	LiquidMix: 液体混合
+	Thunder: 雷声
+	Blizzard: 暴风雪呼啸
+	Roar: 吼叫
+	WormDig: 钻地声
+	Scream: 尖叫
+	Bird: 鸟鸣
+	Duck: 鸭叫
+	Frog: 蛙鸣
+	Critter: 小动物叫声
+	Dolphin: 海豚叫声
+	Seagull: 海鸥叫声
+	Owl: 猫头鹰叫声
+	Cockatiel: 玄凤鹦鹉叫声
+	Macaw: 金刚鹦鹉叫声
+	Toucan: 巨嘴鸟叫声
+	Pixie: 妖精嗡鸣
+	Mummy: 木乃伊低吼
+	BloodZombie: 血月怪物低吼
+	SandShark: 怪物叫声
+	Clown: 小丑叫声
+	QueenSlime: 史莱姆皇后叫声
+	Meowmere: 猫叫声
+	AbigailAttack: 阿比盖尔攻击
+	AbigailCry: 阿比盖尔哭声
+	AbigailSummon: 召唤阿比盖尔
+	AbigailUpgrade: 阿比盖尔强化
+	ChesterOpen: 切斯特打开
+	ChesterClose: 切斯特关闭
+	LucyTalk: 露西斧说话
+	DeerclopsDeath: 独眼巨鹿死亡
+	DeerclopsHit: 独眼巨鹿受伤
+	DeerclopsIce: 独眼巨鹿释放冰刺
+	DeerclopsRubble: 独眼巨鹿投掷碎石
+	DeerclopsRoar: 独眼巨鹿吼叫
+	DeerclopsStep: 独眼巨鹿脚步
+	Guitar: 吉他和弦
+	Drum: 鼓点
+	FireballShot: 火球发射
+	FireballImpact: 火球命中
+	SharedImpact: 撞击声
+	NpcHurt: 生物受伤
+	NpcDeath: 生物死亡
+	UnmappedVanilla: 原版音效
+	Aetherium: 以太块形成
+	AmmoBox: 使用弹药箱
+	AntlionSound: 蚁狮发声
+	BeeBuzz: 蜜蜂嗡鸣
+	Bell: 铃声
+	BladeSwing: 利刃挥动
+	BloodCrawler: 血爬虫发声
+	Boost: 推进声
+	BoulderImpact: 巨石撞击
+	BubblePop: 气泡破裂
+	ChatteringTeeth: 牙齿咔哒声
+	CultistArrival: 拜月教邪教徒现身
+	CultistSound: 拜月教邪教徒发声
+	DartLaunch: 吹箭发射
+	Deflect: 投射物被弹开
+	DemonSound: 恶魔发声
+	DungeonBrick: 地牢砖碎裂
+	EmpressSound: 光之女皇发声
+	FaceMonster: 脸怪发声
+	Fart: 噗噗声
+	FireworksLaunch: 烟花发射
+	FishronSound: 猪龙鱼公爵发声
+	Flute: 长笛声
+	Frankenstein: 科学怪人低吼
+	GolfHole: 高尔夫球进洞
+	GolfSwing: 高尔夫球杆挥动
+	GolfWhistle: 高尔夫口哨声
+	Harp: 竖琴声
+	HitSound: 受击声
+	IceChink: 冰晶碎响
+	IceImpact: 冰块受击
+	IceMist: 冰雪雾出现
+	IcePlaced: 魔法冰块放置
+	JellyfishSound: 水母发声
+	LaserFire: 激光发射
+	LightningCast: 雷电法术发动
+	LiquidSplash: 液体飞溅
+	MagicImpact: 魔法投射物撞击
+	MagicPulse: 魔法脉冲
+	MagicWeapon: 魔法武器发声
+	ManaCrystal: 使用魔力水晶
+	MartianMachine: 火星机械声
+	MetalRing: 金属铮鸣
+	MeteorImpact: 陨石撞击
+	MinecartBounce: 矿车弹起
+	MinecartBrake: 矿车减速
+	MinecartContact: 矿车碰到轨道
+	MoonLordArrival: 月亮领主现身
+	MoonLordSound: 月亮领主发声
+	MusicRecorded: 八音盒录制完成
+	NailGun: 钉枪发射
+	NautilusSound: 恐惧鹦鹉螺发声
+	OddSound: 怪异声响
+	PanImpact: 铁锅敲击声
+	Parrot: 鹦鹉叫声
+	PhantasmalImpact: 幻影眼撞击
+	PhantasmalRay: 幻影死亡射线
+	PhantasmalSphere: 幻影球音效
+	PhantasmSummon: 幻影龙现身
+	Pigron: 猪龙发声
+	Pogo: 弹簧高跷弹跳
+	PortalGun: 传送枪发声
+	ProjectileLaunch: 投射物发射
+	QueenBeeSound: 蜂王发声
+	ShieldBreak: 天界柱护盾破裂
+	ShimmerEnds: 微光效果结束
+	ShimmerSound: 微光发声
+	Slap: 拍击声
+	SnowballImpact: 雪球撞击
+	SnowImpact: 雪块受击
+	SpiritSound: 幽灵发声
+	Spray: 喷射声
+	Squish: 黏软物受压
+	Summon: 召唤声
+	TargetHit: 训练假人受击
+	Teleport: 传送音效
+	ToolMotor: 工具运转声
+	TrackImpact: 矿车轨道受击
+	TrueEyeSound: 克苏鲁真眼发声
+	VoidBag: 虚空袋响动
+	WeaponDischarge: 武器发射声
+	Whip: 鞭子抽响
+	BallistaShot: 弩车发射
+	BetsyBreath: 双足翼龙喷火
+	BetsyCircle: 双足翼龙盘旋攻击
+	BetsyArrival: 双足翼龙现身
+	BetsyWind: 双足翼龙掀起狂风
+	BookCast: 无限智慧巨著施法
+	BookTwister: 魔法旋风呼啸
+	EterniaCrystalHit: 埃特尼亚水晶受击
+	DarkMageAttack: 黑暗魔法师召唤黑暗能量
+	DarkMageHeal: 黑暗魔法师施放治疗
+	DarkSigilImpact: 黑暗印记落下
+	OldOnesSkeleton: 撒旦骷髅现身
+	OldOnesDefeat: 撒旦军队防守失败
+	DefenseSummon: 召唤防御设施
+	DrakinInhale: 德拉克龙吸气
+	DrakinShot: 德拉克龙吐出投射物
+	EterniaPortalHum: 神秘传送门嗡鸣
+	EterniaPortalOpen: 神秘传送门开启
+	EterniaPortalSpawn: 敌怪从传送门出现
+	Flameburst: 爆炸烈焰塔发射
+	GlaiveGhost: 长刀召出幽魂
+	GlaivePierce: 长刀刺击
+	GoblinBombThrow: 哥布林投出炸弹
+	JavelinThrow: 标枪投出
+	JavelinTaunt: 标枪投掷者挑衅
+	KoboldIgnite: 小妖魔点燃炸药
+	KoboldFuse: 小妖魔的引线燃烧
+	LightningZap: 电击声
+	MonkStaffImpact: 武器砸地
+	MonkStaffMiss: 武器挥空
+	OgreAttack: 食人魔攻击
+	OgrePound: 食人魔猛砸地面
+	OgreSpit: 食人魔吐出黏液
+	PhantomPhoenixShot: 幽灵凤凰发射
+	DragonFurySpin: 天龙之怒旋转
+	DragonFuryShot: 天龙之怒发射
+	SonicSlash: 飞龙挥出音波
+	OldOnesVictory: 撒旦军队防守胜利
+	WitherPulse: 枯萎兽光环脉动
+	WitherCrystalHit: 枯萎兽水晶撞击
+	WyvernDive: 埃特尼亚飞龙俯冲
+	GlommerBounce: 咕噜咪弹跳
+	DroneFlight: 四轴竞速无人机飞行
+	Wingbeat: 扑翼声
+	ScramblerSummon: 召唤鳞甲怪坐骑
+	XenopopperFire: 外星霰弹枪发射
+	DerplingSound: 跳跳兽发声
+	FlyingSnakeSound: 飞蛇发声
+	TortoiseSound: 巨型陆龟发声
+	LihzahrdSound: 丛林蜥蜴发声
+	NimbusSound: 愤怒雨云怪发声
+	CrawdadSound: 龙虾发声
+	DeadlySphereSound: 致命球发声
+	ManFlySound: 苍蝇人博士发声
+	GhoulSound: 食尸鬼发声
+	ShellySound: 巨型卷壳怪发声
+	GigazapperSound: 电击怪发声
+	GoblinWarlockSound: 哥布林术士发声
+	GraniteGolemSound: 花岗岩巨人发声
+	MothronSound: 蛾怪发声
+	MushiSound: 蘑菇瓢虫发声
+	PossessedSound: 攀爬魔发声
+	SalamanderSound: 蝾螈发声
+	ScutlixSound: 鳞甲怪发声
+	BestReforge: 最佳重铸提示
+	BarrelFire: 桶发射器发射
+	FlintCharge: 燧石蓄力
+	FlintRelease: 燧石释放攻击
+	FlintWave: 燧石冲击波
+	MushroomSummon: 召唤蘑菇伙伴
+	EaterDig: 世界吞噬怪钻地
+	FishingSplash: 钓鱼溅水声
+	FuseBurn: 引线燃烧
+	Hunger: 饥饿提示
+	MenuAccept: 菜单确认
+	MeteorShower: 流星雨音效
+	CattivaSound: 捣蛋猫发声
+	CattivaDistress: 捣蛋猫不安叫声
+	ChilletSound: 疾旋鼬发声
+	ChilletAttack: 疾旋鼬攻击
+	DigtoiseSound: 碎岩龟发声
+	FoxparksSound: 火绒狐发声
+	FoxparksAttack: 火绒狐攻击
+	FoxparksDistress: 火绒狐不安叫声
+	PalSummon: 召唤帕鲁
+	RainbowChime: 彩虹音效
+	RemoteCar: 遥控车行驶
+	SunlightBurn: 阳光灼烧
+	Sonar: 声呐探测声
+	StatueJump: 雕像怪跳起
+	StatueLaugh: 雕像怪发笑
+	StatueScare: 雕像怪惊吓声
+	TrashItem: 物品丢入垃圾桶
+	AlchemyFlask: 使用炼金烧瓶
+	NightAmulet: 夜之护身符发声
+	SlasherSkull: 神秘头骨发声
+	WolfNecklace: 狼形变身音效
+	KiteReel: 风筝线轴转动
+	EelSound: 电鳗发声
+	StickUnicorn: 木棍独角兽音效
+	SpectateOrb: 观战宝珠音效
+	IceGunshot: 冰川之牙发射
+	ElectricArc: 电弧涌动
+	LightningHit: 闪电击中
+	VolcanicStone: 火山岩音效
+	ArmletSound: 毁灭臂环发声
+	IceCharge: 冰川之牙蓄力
+	StatueHit: 雕像怪受击
+	StatueDeath: 雕像怪倒下
+	DigtoiseDrill: 碎岩龟钻动
+}
+
+MusicTitles: {
+	Unknown: 未知曲目
+	UnknownVanilla: 原版曲目
+	OverworldDay: 森林（日间）
+	Eerie: 诡异
+	Night: 森林（夜间）
+	Underground: 地下
+	Boss1: 首领 1
+	Title: 标题画面
+	Jungle: 丛林
+	Corruption: 腐化之地
+	TheHallow: 神圣之地
+	UndergroundCorruption: 地下腐化之地
+	UndergroundHallow: 地下神圣之地
+	Boss2: 首领 2
+	Boss3: 首领 3
+	Snow: 雪原
+	Space: 太空（夜间）
+	Crimson: 猩红之地
+	Boss4: 首领 4
+	AltOverworldDay: 森林（日间变奏）
+	Rain: 雨天
+	Ice: 地下雪原
+	Desert: 沙漠
+	Ocean: 海洋（日间）
+	Dungeon: 地牢
+	Plantera: 世纪之花
+	Boss5: 首领 5
+	Temple: 丛林神庙
+	Eclipse: 日食
+	Mushrooms: 发光蘑菇生物群落
+	PumpkinMoon: 南瓜月
+	AltUnderground: 地下（变奏）
+	FrostMoon: 霜月
+	UndergroundCrimson: 地下猩红之地
+	TheTowers: 天界柱
+	PirateInvasion: 海盗入侵
+	Hell: 地狱
+	MartianMadness: 火星暴乱
+	LunarBoss: 月亮领主
+	GoblinInvasion: 哥布林入侵
+	Sandstorm: 沙尘暴
+	OldOnesArmy: 撒旦军队
+	SpaceDay: 太空（日间）
+	OceanNight: 海洋（夜间）
+	WindyDay: 大风天
+	TownDay: 城镇（日间）
+	TownNight: 城镇（夜间）
+	SlimeRain: 史莱姆雨
+	DayRemix: 森林（日间混音）
+	MenuMusic: 旅途的开始（含前奏）
+	Monsoon: 暴风雨
+	Graveyard: 墓地
+	JungleUnderground: 地下丛林
+	JungleNight: 丛林（夜间）
+	QueenSlime: 史莱姆皇后
+	EmpressOfLight: 光之女皇
+	DukeFishron: 猪龙鱼公爵
+	MorningRain: 晨雨
+	ConsoleMenu: 主机版主菜单
+	UndergroundDesert: 地下沙漠
+	OtherworldlyRain: 异界 · 雨天
+	OtherworldlyDay: 异界 · 日间
+	OtherworldlyNight: 异界 · 夜间
+	OtherworldlyUnderground: 异界 · 地下
+	OtherworldlyDesert: 异界 · 沙漠
+	OtherworldlyOcean: 异界 · 海洋
+	OtherworldlyMushrooms: 异界 · 发光蘑菇生物群落
+	OtherworldlyDungeon: 异界 · 地牢
+	OtherworldlySpace: 异界 · 太空
+	OtherworldlyUnderworld: 异界 · 地狱
+	OtherworldlySnow: 异界 · 雪原
+	OtherworldlyCorruption: 异界 · 腐化之地
+	OtherworldlyUGCorrption: 异界 · 地下腐化之地
+	OtherworldlyCrimson: 异界 · 猩红之地
+	OtherworldlyUGCrimson: 异界 · 地下猩红之地
+	OtherworldlyIce: 异界 · 地下雪原
+	OtherworldlyUGHallow: 异界 · 地下神圣之地
+	OtherworldlyEerie: 异界 · 诡异
+	OtherworldlyBoss2: 异界 · 首领 2
+	OtherworldlyBoss1: 异界 · 首领 1
+	OtherworldlyInvasion: 异界 · 入侵
+	OtherworldlyTowers: 异界 · 天界柱
+	OtherworldlyLunarBoss: 异界 · 月亮领主
+	OtherworldlyPlantera: 异界 · 世纪之花
+	OtherworldlyJungle: 异界 · 丛林
+	OtherworldlyWoF: 异界 · 血肉墙
+	OtherworldlyHallow: 异界 · 神圣之地
+	Credits: 制作人员名单
+	Deerclops: 独眼巨鹿
+	Shimmer: 微光
+	DiagnosticLoop: 循环测试曲
+}
+
+Editor: {
+	Header: 字幕编辑模式 · 拖动此处移动
+	Preview: 布局预览
+	CurrentTrack: 当前曲目
+	Details: 字幕详情
+	MusicScope: 作用范围为此曲目。
+	SoundScope: 作用范围为此声音族及其变体。
+	SaveFailed: 字幕布局保存失败。
+	VolumeUnavailable: 此音频后端的音量调节不可用。
+	VolumeSaveFailed: 音量设置保存失败。
+	Mute: 静音
+	ResetVolume: 恢复默认
+}
+
+VolumeManager: {
+	Sound: 音效
+	Music: 音乐
+	Search: 搜索名称、来源或目标键
+	Help: 保存配置后应用更改。将鼠标悬停在条目名称上可查看完整目标键。
+	Empty: 没有符合条件的音量记录。
+	Page: 第 {0}/{1} 页 · 共 {2} 条
+	Reset: 恢复默认
+	ResetAll: 恢复全部音量
+	ConfirmReset: 确认恢复全部音量
+	CancelReset: 取消
+	Unavailable: 当前不可用
+	UnknownSource: 未知来源
+	ConfigSaveFailed: 保存配置失败。已保留修改，可再次尝试保存。
+}

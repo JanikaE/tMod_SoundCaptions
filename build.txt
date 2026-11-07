@@ -1,0 +1,5 @@
+displayName = ��Ч��Ļ
+author = Janika
+version = 1.0.0
+side = Client
+buildIgnore = DESIGN.md, README.md, README_EN.md, description_workshop_en.txt, docs/*
