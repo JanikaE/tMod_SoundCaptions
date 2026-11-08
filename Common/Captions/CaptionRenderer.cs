@@ -66,7 +66,7 @@ internal readonly struct CaptionRenderer(SpriteBatch spriteBatch, DynamicSpriteF
             size = font.MeasureString(text);
         }
 
-        // 只在可用高度内排入完整文字行。显示空间不足时，较旧字幕仍保留到各自到期。
+        // 只在可用高度内排入完整文字行。显示空间不足时，超出可见区域的字幕仍保留到各自到期。
         int length = text.Length;
         while (size.Y > maxHeight)
         {

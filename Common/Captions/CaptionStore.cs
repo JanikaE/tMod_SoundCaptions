@@ -7,16 +7,16 @@ using Terraria.Audio;
 
 namespace SoundCaptions.Common.Captions;
 
-/// <summary>维护以声音族去重的有效字幕索引及按最近播放排列的顺序。</summary>
+/// <summary>维护以声音族去重的有效字幕索引及按条目加入时间排列的顺序。</summary>
 internal sealed class CaptionStore
 {
     private readonly Dictionary<CaptionKey, LinkedListNode<CaptionEntry>> entries = new();
     private readonly LinkedList<CaptionEntry> order = new();
 
     internal int Count => entries.Count;
-    internal LinkedListNode<CaptionEntry> Newest => order.Last;
+    internal LinkedListNode<CaptionEntry> BottomEntry => order.Last;
 
-    /// <summary>新增或刷新声音族的字幕，并更新位置、到期时间和排序。</summary>
+    /// <summary>新增或刷新声音族的字幕。尚未到期的条目保留排序位置。</summary>
     internal void Record(SoundPlayback playback, SoundPlayer player, double now, double duration)
     {
         // 以声音族键去重，语义文案相同的独立音量目标仍分别保留。
@@ -24,11 +24,13 @@ internal sealed class CaptionStore
         {
             node = new LinkedListNode<CaptionEntry>(new CaptionEntry(playback.CaptionKey, CaptionCatalog.Resolve(playback.VolumeKey)));
             entries.Add(playback.CaptionKey, node);
+            order.AddLast(node);
         }
-        else
+        else if (now >= node.Value.ExpiresAt)
         {
-            // 移动原节点更新最近播放顺序，重复触发时无需再分配一行。
+            // 播放回调可能先于到期清理。按新条目排序，同时保留待检查的循环实例。
             order.Remove(node);
+            order.AddLast(node);
         }
 
         CaptionEntry entry = node.Value;
@@ -40,8 +42,6 @@ internal sealed class CaptionStore
             entry.Loops ??= new List<CaptionLoop>();
             entry.Loops.Add(new CaptionLoop(player, playback.Slot));
         }
-
-        order.AddLast(node);
     }
 
     /// <summary>刷新循环声音的位置和生命周期，并移除已到期的字幕。</summary>

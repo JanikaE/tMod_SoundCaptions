@@ -21,16 +21,18 @@ public enum MusicDisplayMode
 /// <summary>保存本机字幕外观、显示开关、诊断选项和单项音量覆盖。</summary>
 public sealed class ClientConfig : ModConfig
 {
+    internal const float DefaultCaptionDurationSeconds = 2f;
+
     public override ConfigScope Mode => ConfigScope.ClientSide;
 
     [Header("Sound")]
     [DefaultValue(true)]
     public bool ShowSoundCaptions { get; set; } = true;
 
-    [DefaultValue(3f)]
+    [DefaultValue(DefaultCaptionDurationSeconds)]
     [Range(0.5f, 15f)]
     [Increment(0.5f)]
-    public float SoundDurationSeconds { get; set; } = 3f;
+    public float SoundDurationSeconds { get; set; } = DefaultCaptionDurationSeconds;
 
     [ColorNoAlpha]
     [DefaultValue(typeof(Color), "255, 255, 255, 255")]
@@ -59,18 +61,18 @@ public sealed class ClientConfig : ModConfig
     [DefaultValue(true)]
     public bool ShowMusicCaptions { get; set; } = true;
 
-    [DefaultValue(MusicDisplayMode.OnTrackChange)]
+    [DefaultValue(MusicDisplayMode.Always)]
     [Dropdown]
-    public MusicDisplayMode MusicMode { get; set; } = MusicDisplayMode.OnTrackChange;
+    public MusicDisplayMode MusicMode { get; set; } = MusicDisplayMode.Always;
 
-    [DefaultValue(3f)]
+    [DefaultValue(DefaultCaptionDurationSeconds)]
     [Range(0.5f, 15f)]
     [Increment(0.5f)]
-    public float MusicDurationSeconds { get; set; } = 3f;
+    public float MusicDurationSeconds { get; set; } = DefaultCaptionDurationSeconds;
 
     [ColorNoAlpha]
-    [DefaultValue(typeof(Color), "255, 255, 255, 255")]
-    public Color MusicTextColor { get; set; } = Color.White;
+    [DefaultValue(typeof(Color), "0, 255, 0, 255")]
+    public Color MusicTextColor { get; set; } = Color.Lime;
 
     [ColorNoAlpha]
     [DefaultValue(typeof(Color), "0, 0, 0, 255")]

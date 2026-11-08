@@ -6,8 +6,8 @@ Sound Captions is a client-side caption mod for Terraria and tModLoader. It capt
 
 ## Captions and layout
 
-- Toggle sound and music captions independently. Captions last three seconds by default and fade at the end. A repeated sound refreshes its caption. Arrows indicate left or right relative to your character. Global sounds and sounds within the horizontal threshold have no arrow.
-- In Mod Configuration → Sound Captions → Caption Settings, adjust font sizes, text colors, background opacity, duration, and the direction threshold. Music captions can appear on track changes or stay visible.
+- Toggle sound and music captions independently. Sound captions last two seconds by default and fade at the end. A repeated sound refreshes its caption. Arrows indicate left or right relative to your character. Global sounds and sounds within the horizontal threshold have no arrow.
+- In Mod Configuration → Sound Captions → Caption Settings, adjust font sizes, text colors, background opacity, duration, and the direction threshold. By default, the current track stays visible in bright green. In track-change mode, the caption appears for two seconds by default.
 - Press **F9** by default to enter edit mode. Drag the header to move the window, drag the corner handle to resize it, or scroll through active sound captions. You can rebind the shortcut in the game controls. The game keeps previously saved bindings. Shift+F9 still switches vanilla lighting modes. Press it again to exit or use Esc to close the details panel and then exit edit mode.
 
 ## Individual volume

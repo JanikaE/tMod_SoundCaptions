@@ -134,8 +134,8 @@ Keybinds.ToggleEditMode.DisplayName: Toggle Caption Edit Mode
 Diagnostics: {
 	StressAlreadyRunning: A caption measurement is already running.
 	StressNeedsWorld: Enter a world before starting a caption measurement.
-	StressBaselineStarted: "Caption baseline started ({0} seconds)."
-	StressLoadStarted: "Caption stress test started ({0} seconds)."
+	StressBaselineStarted: Caption baseline started ({0} seconds).
+	StressLoadStarted: Caption stress test started ({0} seconds).
 	StressIdle: No caption measurement is running.
 	StressBaseline: Baseline
 	StressLoad: Stress

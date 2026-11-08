@@ -134,8 +134,8 @@ Keybinds.ToggleEditMode.DisplayName: 切换字幕编辑模式
 Diagnostics: {
 	StressAlreadyRunning: 已有一轮字幕测量正在运行。
 	StressNeedsWorld: 请先进入世界再开始测量。
-	StressBaselineStarted: "已开始字幕基线测量（{0} 秒）。"
-	StressLoadStarted: "已开始字幕压力测量（{0} 秒）。"
+	StressBaselineStarted: 已开始字幕基线测量（{0} 秒）。
+	StressLoadStarted: 已开始字幕压力测量（{0} 秒）。
 	StressIdle: 当前没有字幕测量。
 	StressBaseline: 基线
 	StressLoad: 压力

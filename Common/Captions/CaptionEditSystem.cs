@@ -476,7 +476,7 @@ public sealed class CaptionEditSystem : ModSystem
         ClientConfig config = ModContent.GetInstance<ClientConfig>();
         var appearance = CaptionAppearance.Create(config.SoundTextColor, config.SoundBackgroundColor,
             config.SoundBackgroundOpacity, config.SoundTextScale);
-        var node = config.ShowSoundCaptions ? Captions.Newest : null;
+        var node = config.ShowSoundCaptions ? Captions.BottomEntry : null;
         scroll = Math.Min(scroll, Math.Max(0, Captions.ActiveCount - 1));
         for (int i = 0; i < scroll && node != null; i++)
             node = node.Previous;

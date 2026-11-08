@@ -30,7 +30,7 @@ public sealed class SoundCaptionSystem : ModSystem
     internal MusicCaptionState Music { get; } = new();
 
     internal int ActiveCount => store.Count;
-    internal LinkedListNode<CaptionEntry> Newest => store.Newest;
+    internal LinkedListNode<CaptionEntry> BottomEntry => store.BottomEntry;
     internal double Now => clock.Now;
 
     public override void Load()
@@ -111,7 +111,7 @@ public sealed class SoundCaptionSystem : ModSystem
 
     /// <summary>规范化字幕时长，并为无效数值使用默认时长。</summary>
     private static double CaptionDuration(float duration) =>
-        float.IsFinite(duration) ? Math.Clamp((double)duration, 0.5, 15.0) : 3.0;
+        float.IsFinite(duration) ? Math.Clamp((double)duration, 0.5, 15.0) : ClientConfig.DefaultCaptionDurationSeconds;
 
     /// <summary>一次写入指定数量的不同合成字幕。</summary>
     internal void RecordDiagnosticBatch(int count)
@@ -174,7 +174,7 @@ public sealed class SoundCaptionSystem : ModSystem
             layers.Insert(index, new LegacyGameInterfaceLayer("Sound Captions: Captions", Draw, InterfaceScaleType.UI));
     }
 
-    /// <summary>按配置绘制音乐基线及能放入窗口的最新音效字幕。</summary>
+    /// <summary>按配置绘制音乐基线及从窗口底部排入的音效字幕。</summary>
     private bool Draw()
     {
         ApplyWorldReset();
@@ -209,7 +209,7 @@ public sealed class SoundCaptionSystem : ModSystem
             config.SoundBackgroundOpacity, config.SoundTextScale);
         float? playerX = Main.LocalPlayer is { active: true } player ? player.Center.X : null;
         int threshold = Math.Clamp(config.DirectionThreshold, 0, 160);
-        for (var node = store.Newest; node != null && bounds.Height > 0; node = node.Previous)
+        for (var node = store.BottomEntry; node != null && bounds.Height > 0; node = node.Previous)
         {
             CaptionEntry entry = node.Value;
             int direction = GetDirection(entry.Position, playerX, threshold);
