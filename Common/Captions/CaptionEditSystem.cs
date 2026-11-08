@@ -511,7 +511,7 @@ public sealed class CaptionEditSystem : ModSystem
         }
     }
 
-    /// <summary>显示选中条目的名称、完整目标键和音量操作区。</summary>
+    /// <summary>显示选中条目的名称、来源和音量操作区，悬停时提供完整目标键。</summary>
     private void DrawDetails(CaptionEditorCanvas canvas, EditorGeometry geometry, CaptionSelection target)
     {
         Rectangle detail = geometry.Detail;
@@ -530,7 +530,10 @@ public sealed class CaptionEditSystem : ModSystem
             canvas.DetailText(detail, y + 99, 19, Text("VolumeUnavailable"));
         int identityHeight = Math.Max(0, Math.Min(80, detail.Bottom - y));
         if (new Rectangle(detail.Left, y, detail.Width, identityHeight).Contains(Main.mouseX, Main.mouseY))
-            Main.instance.MouseText($"{target.Name}\n{target.Source}");
+        {
+            string source = target.Source == target.StableKey ? target.Source : $"{target.Source}\n{target.StableKey}";
+            Main.instance.MouseText($"{target.Name}\n{source}");
+        }
     }
 
     /// <summary>绘制当前音量和用于试听、输入、静音及恢复的控件。</summary>
@@ -591,13 +594,24 @@ public sealed class CaptionEditSystem : ModSystem
 internal readonly record struct CaptionSelection(string Name, string Source, VolumeTargetKey? SoundKey, string MusicKey)
 {
     internal CaptionVolumeTarget Volume => new(SoundKey, MusicKey);
+    internal string StableKey => SoundKey?.ToString() ?? MusicKey;
 
-    /// <summary>为选中的音效生成带完整声音键的详情快照。</summary>
-    internal static CaptionSelection ForSound(CaptionEntry entry) =>
-        new(entry.Label.Text, entry.Key.Family.ToString(), entry.Key.Family, null);
+    /// <summary>为选中的音效生成带来源名称和稳定声音键的详情快照。</summary>
+    internal static CaptionSelection ForSound(CaptionEntry entry)
+    {
+        VolumeTargetKey key = entry.Key.Family;
+        return new CaptionSelection(entry.Label.Text, SourceFor(key.BasePath, key.ToString()), key, null);
+    }
 
-    /// <summary>为选中的曲目生成带稳定曲目键的详情快照。</summary>
-    internal static CaptionSelection ForMusic(string key) => new(MusicTitleCatalog.GetTitle(key), key, null, key);
+    /// <summary>为选中的曲目生成带来源名称和稳定曲目键的详情快照。</summary>
+    internal static CaptionSelection ForMusic(string key) =>
+        new(MusicTitleCatalog.GetTitle(key), SourceFor(key, key), null, key);
+
+    /// <summary>模组资源显示来源名称，原版或无来源的资源显示稳定键。</summary>
+    private static string SourceFor(string path, string key) =>
+        path?.StartsWith("Terraria/", StringComparison.Ordinal) == true
+            ? key
+            : CaptionNames.AssetOwner(path) ?? key;
 }
 
 /// <summary>统一编辑器对音效和音乐目标的试听与保存操作。</summary>

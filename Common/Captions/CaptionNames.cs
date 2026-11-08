@@ -40,21 +40,23 @@ internal static class CaptionNames
         Music.Clear();
     }
 
-    /// <summary>用来源模组和可读的资源文件名生成回退标题。</summary>
+    /// <summary>将资源文件名整理为可读的回退标题。</summary>
     internal static string FriendlyAssetTitle(string path)
     {
         string leaf = path[(path.LastIndexOf('/') + 1)..];
         string resource = Separators.Replace(leaf, " ").Trim();
-        if (string.IsNullOrWhiteSpace(resource))
+        return resource.Length == 0 ? null : resource;
+    }
+
+    /// <summary>从资源路径提取来源，优先使用已加载模组的显示名。</summary>
+    internal static string AssetOwner(string path)
+    {
+        int separator = path?.IndexOf('/') ?? -1;
+        if (separator <= 0)
             return null;
 
-        int separator = path.IndexOf('/');
-        if (separator <= 0)
-            return resource;
-
         string owner = path[..separator];
-        string displayName = ModLoader.TryGetMod(owner, out Mod mod) ? mod.DisplayName : owner;
-        return $"{displayName} · {resource}";
+        return ModLoader.TryGetMod(owner, out Mod mod) ? mod.DisplayName : owner;
     }
 }
 

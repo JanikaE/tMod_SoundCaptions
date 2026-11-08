@@ -79,7 +79,7 @@ internal static class VanillaSoundNames
         Add("PlayerKilled", SoundID.PlayerKilled);
         Add("Drown", SoundID.Drown);
         Add("DoubleJump", SoundID.DoubleJump);
-        Add("Run", SoundID.Run);
+        Add("Run", SoundID.Run, SoundID.Run with { Identifier = "Piggy Run" });
         Add("MaxMana", SoundID.MaxMana);
         Add("Mech", SoundID.Mech);
         Add("MenuOpen", SoundID.MenuOpen);

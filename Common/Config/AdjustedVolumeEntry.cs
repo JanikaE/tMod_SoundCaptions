@@ -76,13 +76,6 @@ internal readonly record struct AdjustedVolumeEntry(string Title, string Owner, 
     }
 
     /// <summary>从资源路径提取来源，并优先显示已加载模组的显示名。</summary>
-    private static string OwnerOf(string path)
-    {
-        int slash = path.IndexOf('/');
-        if (slash <= 0)
-            return Language.GetTextValue("Mods.SoundCaptions.VolumeManager.UnknownSource");
-
-        string owner = path[..slash];
-        return ModLoader.TryGetMod(owner, out Mod mod) ? mod.DisplayName : owner;
-    }
+    private static string OwnerOf(string path) =>
+        CaptionNames.AssetOwner(path) ?? Language.GetTextValue("Mods.SoundCaptions.VolumeManager.UnknownSource");
 }
